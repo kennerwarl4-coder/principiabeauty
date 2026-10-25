@@ -1,0 +1,755 @@
+/*
+ * cro-boost.css — Principia Skincare CRO Layer
+ * Paleta on-brand: #000 / #fff / #f5f5f5 / #1a1a1a / #555
+ * Design minimalista, elegante — sem cores estridentes.
+ */
+
+/* ─── 1. CTA PULSE / GLOW — Sutil, on-brand ──────────────────────── */
+button.action.primary.tocart.cro-pulse,
+#product-addtocart-button.cro-pulse {
+    animation: cro-glow-pulse 2.5s ease-in-out infinite !important;
+    position: relative;
+}
+
+@keyframes cro-glow-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(0,0,0,.3),   0 2px 8px rgba(0,0,0,.2); }
+    45%  { box-shadow: 0 0 0 8px rgba(0,0,0,0),  0 4px 18px rgba(0,0,0,.3); }
+    100% { box-shadow: 0 0 0 0 rgba(0,0,0,0),    0 2px 8px rgba(0,0,0,.2); }
+}
+
+/* ─── 2. HEADER-TOP no mobile ─────────────────────────────────────── */
+/* O tema esconde .header-top inteiro no mobile por padrão (regra própria dele,
+   .page-header .header-top{display:none} em @media max-width:767px) — precisa
+   de !important pra vencer. Contato e redes sociais (colunas com .hidden-xs)
+   continuam escondidos; só a faixa "Frete grátis" (cro-header-promo, sempre
+   visível e sem depender de carrossel) deve aparecer. */
+@media (max-width: 767px) {
+    .page-header .header-top {
+        display: block !important;
+        padding: 0 !important;
+    }
+    .header-top .store-info-top.container,
+    .header-top .row {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .header-top .col-sm-8 {
+        width: 100% !important;
+        padding: 0 !important;
+        float: none !important;
+    }
+}
+
+/* ─── 3. FOOTER — badges de confiança (Compra Segura, Entrega...) ──── */
+/* O tema original espalha essas 4 regras em vários breakpoints conflitantes
+   (icone ora flutua à direita, ora fica embaixo do texto). Reorganiza tudo
+   num grid simples: ícone num círculo no topo, título e descrição centrados. */
+.service-banner-style01.row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 28px !important;
+    padding: 10px 0 !important;
+}
+
+.service-banner-style01 .item {
+    width: calc(25% - 21px) !important;
+    min-width: 180px;
+    max-width: 260px;
+    float: none !important;
+    margin: 0 !important;
+}
+
+.service-banner-style01 .item > a {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    float: none !important;
+}
+
+.service-banner-style01 .item-icon {
+    order: -1;
+    float: none !important;
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px !important;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.service-banner-style01 .item-content {
+    width: 100% !important;
+    text-align: center !important;
+    float: none !important;
+    letter-spacing: normal;
+}
+
+.service-banner-style01 .item-content strong {
+    display: block;
+    font-size: 13px;
+    line-height: 1.35;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    min-height: 2.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+}
+
+.service-banner-style01 .item-content > p {
+    font-size: 12px !important;
+    font-style: normal !important;
+    color: #777;
+    width: 100% !important;
+    margin: 0 auto !important;
+    line-height: 1.45;
+}
+
+@media (max-width: 767px) {
+    .service-banner-style01 .item { width: calc(50% - 14px) !important; }
+}
+
+/* ─── 4. RESPIRO entre o header e o conteúdo da página de produto ──── */
+.product-main-top {
+    padding-top: 24px !important;
+}
+
+/* ─── 5. PRICE BOX — De / Por com preço riscado ─────────────────── */
+.product-info-price .price-box {
+    display: flex !important;
+    align-items: baseline !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin: 14px 0 10px !important;
+}
+
+.product-info-price .price-box .old-price {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    margin: 0 !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+}
+
+.product-info-price .price-box .old-price .price-container {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 5px !important;
+    text-decoration: none !important;
+}
+
+.product-info-price .price-box .old-price .price-label {
+    display: inline-block !important;
+    font-size: 15px !important;
+    color: #888 !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+}
+
+.product-info-price .price-box .old-price .price-label:after {
+    display: none !important;
+    content: '' !important;
+}
+
+.product-info-price .price-box .old-price .price-wrapper.custom,
+.product-info-price .price-box .old-price .price,
+.product-info-price .price-box .old-price .price.old-price {
+    font-size: 18px !important;
+    color: #888 !important;
+    text-decoration: line-through !important;
+    font-weight: 400 !important;
+    display: inline-flex !important;
+    gap: 2px !important;
+    align-items: baseline !important;
+    line-height: normal !important;
+}
+
+.product-info-price .price-box .old-price .price:before {
+    display: none !important;
+}
+
+.product-info-price .price-box .old-price .price .currency-symbol {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #888 !important;
+    text-decoration: line-through !important;
+}
+
+.product-info-price .price-box .old-price .price .price-integer {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: #888 !important;
+    padding-left: 0 !important;
+    text-decoration: line-through !important;
+}
+
+.product-info-price .price-box .old-price .price .price-decimal {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #888 !important;
+    display: inline !important;
+    text-decoration: line-through !important;
+}
+
+.product-info-price .price-box .special-price {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    margin: 0 !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+}
+
+.product-info-price .price-box .special-price .price-container {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 5px !important;
+    text-decoration: none !important;
+}
+
+.product-info-price .price-box .special-price .price-label {
+    display: inline-block !important;
+    font-size: 15px !important;
+    color: #222 !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+
+.product-info-price .price-box .special-price .price-label:after {
+    display: none !important;
+    content: '' !important;
+}
+
+.product-info-price .price-box .special-price .price-wrapper.custom .price {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 2px !important;
+}
+
+.product-info-price .price-box .special-price .price .currency-symbol {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #000 !important;
+    margin-right: 2px !important;
+}
+
+.product-info-price .price-box .special-price .price .price-integer {
+    font-size: 34px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    color: #000 !important;
+}
+
+.product-info-price .price-box .special-price .price .price-decimal {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    align-self: flex-start !important;
+    color: #000 !important;
+}
+
+.product-info-price .price-box .discount-tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: #000 !important;
+    color: #fff !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    padding: 3px 8px !important;
+    border-radius: 4px !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    align-self: center !important;
+}
+
+/* ─── 6. MODO DE USO RESPONSIVO E ORGANIZADO ─────────────────────── */
+.cro-modo-uso {
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #333;
+    padding: 4px 0;
+}
+
+.cro-routine-block {
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 10px 0 14px;
+}
+
+.cro-routine-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.cro-routine-label {
+    font-weight: 700;
+    font-size: 13px;
+    color: #111;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 75px;
+    padding-top: 3px;
+}
+
+.cro-routine-steps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 6px;
+    flex: 1;
+}
+
+.cro-step-pill {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #111;
+    white-space: nowrap;
+}
+
+.cro-step-arrow {
+    color: #888;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.cro-modo-uso-divider {
+    border: 0;
+    border-top: 1px solid #eaeaea;
+    margin: 14px 0;
+}
+
+.cro-product-usage-item {
+    margin-bottom: 12px;
+}
+
+.cro-product-usage-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 6px;
+    line-height: 1.35;
+}
+
+.cro-product-usage-line {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 6px;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.cro-product-usage-line:before {
+    content: "»";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #111;
+    font-weight: 700;
+}
+
+.cro-product-usage-line strong {
+    color: #000;
+}
+
+/* ─── 7. KIT CONTENTS HIGHLIGHT STRIP (logo abaixo do H1) ─────────── */
+.cro-kit-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 14px;
+}
+
+.cro-kit-highlights .cro-step-pill {
+    font-size: 11px;
+    padding: 4px 9px;
+}
+
+.cro-kit-highlights .cro-step-pill--gift {
+    background: #f5f5f5;
+    border-style: dashed;
+    color: #555;
+    font-weight: 600;
+}
+
+/* ─── 8. NOTA DE ECONOMIA — reforça o valor abaixo do preço ──────── */
+.cro-savings-note {
+    font-size: 13px;
+    color: #2f6b3a;
+    font-weight: 600;
+    margin: -4px 0 8px;
+}
+
+/* ─── 9. BARRA FIXA DE COMPRA (mobile) ───────────────────────────── */
+.cro-sticky-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #fff;
+    border-top: 1px solid #e2e2e2;
+    box-shadow: 0 -4px 16px rgba(0,0,0,.08);
+    padding: 10px 14px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+    transition: transform .25s ease;
+}
+
+@media (max-width: 767px) {
+    .cro-sticky-bar {
+        display: flex;
+    }
+}
+
+.cro-sticky-bar.is-visible {
+    transform: translateY(0);
+}
+
+.cro-sticky-bar-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.cro-sticky-bar-name {
+    font-size: 11px;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cro-sticky-bar-price {
+    font-size: 17px;
+    font-weight: 800;
+    color: #000;
+}
+
+.cro-sticky-bar-btn {
+    flex-shrink: 0;
+    background: #000;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    cursor: pointer;
+}
+
+.cro-sticky-bar-btn:active {
+    background: #1a1a1a;
+}
+
+/* ─── 10. TÍTULO DO PRODUTO — levemente maior que o padrão do tema ── */
+.page-title-wrapper .page-title,
+.page-title-wrapper .page-title .base {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+}
+
+@media (min-width: 768px) {
+    .page-title-wrapper .page-title,
+    .page-title-wrapper .page-title .base {
+        font-size: 29px !important;
+    }
+}
+
+
+
+
+
+
+/* ─── 5. BLOCO ESTOQUE + PREÇO + PARCELAS (ficha do produto) ──────── */
+/* "Em Estoque" verde com ícone à esquerda, preço com centavos sobrescritos
+   e parcelas em cinza com o valor em negrito. Os !important vencem o CSS do
+   tema, que carrega depois deste arquivo. */
+body.catalog-product-view .product-info-main .product-info-stock-sku {
+    display: block !important;
+    width: auto !important;
+    padding-left: 0 !important;
+    margin: 0 0 14px !important;
+}
+body.catalog-product-view .product-info-main .product-info-stock-sku .stock.available {
+    position: static !important;
+    transform: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    color: #3cae4c !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+body.catalog-product-view .product-info-main .product-info-stock-sku .stock.available:before {
+    display: none !important;
+}
+.stock.available .cro-stock-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    display: block;
+}
+body.catalog-product-view .product-info-main .price-box .price-wrapper.custom .price {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+    color: #000 !important;
+}
+body.catalog-product-view .product-info-main .price-box .price-wrapper.custom .price .currency-symbol {
+    align-self: auto !important;
+    font-size: 22px !important;
+    font-weight: 400 !important;
+}
+body.catalog-product-view .product-info-main .price-box .price-wrapper.custom .price .price-integer {
+    height: auto !important;
+    align-content: normal !important;
+    font-size: 42px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+body.catalog-product-view .product-info-main .price-box .price-wrapper.custom .price .price-decimal {
+    align-self: flex-start !important;
+    height: auto !important;
+    margin-top: 2px !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+}
+body.catalog-product-view .product-info-main .installments-price {
+    margin-top: 6px !important;
+    font-size: 17px !important;
+    line-height: 1.3 !important;
+    color: #555 !important;
+}
+body.catalog-product-view .product-info-main .installments-price strong {
+    font-weight: 700 !important;
+    color: #333 !important;
+}
+
+/* Ficha: garante que o preço apareça embaixo do "Em Estoque" (o tema deixava
+   o bloco de preço numa coluna de largura 0 ao lado do estoque). */
+body.catalog-product-view .product-info-main .product-info-price {
+    display: block !important;
+}
+body.catalog-product-view .product-info-main .product-info-price .price-box {
+    display: block !important;
+    width: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+}
+
+/* ─── 6. HEADER MOBILE — lupa + carrinho com contador à direita ───── */
+.cro-hdr-icons { display: none; }
+@media (max-width: 767px) {
+    .page-header .header-panel-right {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+    }
+    .cro-hdr-icons {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding-right: 12px;
+    }
+    .cro-hdr-btn {
+        position: relative;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .cro-hdr-btn svg { width: 20px; height: 20px; display: block; }
+    .cro-hdr-cart svg { width: 26px; height: 22px; }
+    .cro-hdr-badge {
+        position: absolute;
+        top: 0;
+        right: -2px;
+        min-width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #fff;
+        color: #000;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 15px;
+        text-align: center;
+    }
+}
+@media (max-width: 767px) {
+    .cro-hdr-icons { margin-top: 11px; }
+    /* A caixa de busca do tema deixava um ícone quebrado ao lado do carrinho */
+    .page-header .header-panel-bottom .header-search-wrap { display: none !important; }
+}
+
+/* ─── 7. SEÇÕES DA FICHA (Indicações / Comprovações) e RODAPÉ no celular ─ */
+/* Indicações: marcador "»" no lugar do quadradinho do ícone-fonte do tema */
+.product.info.detailed #principais_indicacoes_check .additional-attributes.border-none th:before {
+    font-family: inherit !important;
+    content: '»' !important;
+    font-size: inherit !important;
+    font-weight: 400 !important;
+    margin-right: 4px !important;
+    vertical-align: baseline !important;
+}
+
+/* Comprovações: texto cortado com degradê e link "ver mais" / "ver menos" */
+.cro-more-wrap { position: relative; }
+.cro-more-wrap.is-clamped > .product.attribute {
+    max-height: 340px;
+    overflow: hidden;
+}
+.cro-more-wrap.is-clamped:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(245,245,245,0), #f5f5f5 85%);
+    pointer-events: none;
+}
+.cro-more-btn {
+    display: block;
+    margin: 6px auto 4px;
+    padding: 6px 12px;
+    border: 0;
+    background: transparent;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    text-decoration: underline;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.cro-more-wrap.is-clamped .cro-more-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 110px;
+}
+
+/* Rodapé (celular): cada item em uma linha, texto à direita e ícone preto
+   à direita, sem o círculo escuro. */
+@media (max-width: 767px) {
+    .service-banner-style01.row {
+        display: block !important;
+        gap: 0 !important;
+        padding: 10px 20px !important;
+    }
+    .service-banner-style01 .item {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        margin: 0 0 18px !important;
+        padding: 0 !important;
+    }
+    .service-banner-style01 .item > a {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        text-align: right !important;
+        gap: 14px !important;
+    }
+    .service-banner-style01 .item-icon {
+        order: 0 !important;
+        width: 24px !important;
+        min-width: 24px !important;
+        height: auto !important;
+        background: transparent !important;
+        color: #111 !important;
+        border-radius: 0 !important;
+        font-size: 24px !important;
+    }
+    .service-banner-style01 .item-content {
+        width: auto !important;
+        flex: 1 1 auto;
+        text-align: right !important;
+    }
+    .service-banner-style01 .item-content strong {
+        justify-content: flex-end !important;
+        min-height: 0 !important;
+        font-size: 14px !important;
+        margin-bottom: 2px !important;
+    }
+    .service-banner-style01 .item-content > p {
+        margin: 0 !important;
+        font-size: 13px !important;
+        color: #1f2a44 !important;
+        text-align: right !important;
+    }
+}
+
+/* ─── 8. BOTÃO FLUTUANTE DO WHATSAPP ─────────────────────────────── */
+.cro-whats {
+    position: fixed;
+    left: 14px;
+    bottom: 14px;
+    z-index: 2147483000;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    line-height: 1;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+}
+.cro-whats .fa { color: #fff; }
+
+/* Galeria: caixa de tamanho fixo (3:2) para a altura não pular ao passar entre
+   as fotos do kit (grandes) e as fotos dos frascos (pequenas). */
+.product.media .gallery-placeholder__image {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+}
